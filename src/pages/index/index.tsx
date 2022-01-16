@@ -3,7 +3,7 @@ import './index.less'
 import LunarCalendar from 'lunar-calendar'
 import moment from 'moment'
 import {useEffect, useState} from "react";
-import Taro, {request, useShareAppMessage} from "@tarojs/taro";
+import Taro, {onAppShow, request, useDidShow, useShareAppMessage} from "@tarojs/taro";
 
 const Index = () =>{
   console.log(process.env.NODE_ENV,process.env.HOST)
@@ -47,12 +47,11 @@ const Index = () =>{
     }
   })
 
-  useEffect(()=>{
-    request({url:'https://www.api.rico.org.cn/ow-calendar-api/ow'}).then(res=>{
+  useDidShow(() => {
+    request({url:'https://www.api.rico.org.cn/ow-calendar-api/ow',data:{t:Math.random()}}).then(res=>{
       setRoData(res.data)
     })
-
-  },[])
+  })
 
   return (
     <View className='home'>
