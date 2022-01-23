@@ -28,8 +28,8 @@ const Index = () =>{
     content: '蚜虫吃青草，锈吃铁，虚伪吃灵魂。',
     from: '《我的一生》',
     profession: '作家',
-    name: '安东·巴普洛维奇·契诃夫',
-    originName: 'Антон Павлович Чехов',
+    author: '安东·巴普洛维奇·契诃夫',
+    authorOriginName: 'Антон Павлович Чехов',
   })
 
 
@@ -48,7 +48,7 @@ const Index = () =>{
   })
 
   useDidShow(() => {
-    request({url:'https://www.api.rico.org.cn/ow-calendar-api/ow',data:{t:Math.random()}}).then(res=>{
+    request({url:'https://www.api.rico.org.cn/qingkong/calendar/ow',data:{t:Math.random()}}).then(res=>{
       setRoData(res.data)
     })
   })
@@ -83,8 +83,8 @@ const Index = () =>{
 
         <View className='bottom'>
           <View className='baixian'></View>
-          <View className='zuozhe'>{roData.profession}，{roData.name}</View>
-          <View className='en-name'>{roData.originName}</View>
+          <View className='zuozhe'>{roData.profession}，{roData.author}</View>
+          <View className='en-name'>{roData.authorOriginName}</View>
         </View>
       </View>
 
