@@ -1,9 +1,10 @@
-import {Button, View} from '@tarojs/components'
+import {Button, Image, View} from '@tarojs/components'
 import './index.less'
 import LunarCalendar from 'lunar-calendar'
 import moment from 'moment'
 import {useEffect, useState} from "react";
 import Taro, {onAppShow, request, useDidShow, useShareAppMessage} from "@tarojs/taro";
+import WechatIMG195Jpeg from '../img/WechatIMG195.jpeg'
 
 const Index = () =>{
   console.log(process.env.NODE_ENV,process.env.HOST)
@@ -24,12 +25,12 @@ const Index = () =>{
 
 
   const [roData,setRoData] = useState({
-    suggestion: '忌伪善',
-    content: '蚜虫吃青草，锈吃铁，虚伪吃灵魂。',
-    from: '《我的一生》',
-    profession: '作家',
-    author: '安东·巴普洛维奇·契诃夫',
-    authorOriginName: 'Антон Павлович Чехов',
+    proposal: '',
+    content: '',
+    from: '',
+    profession: '',
+    author: '',
+    authorOriginName: '',
   })
 
 
@@ -57,6 +58,7 @@ const Index = () =>{
     <View className='home'>
       <View className='date'>{baseData.date}</View>
 
+      {/*<Image src={WechatIMG195Jpeg} />*/}
 
       <View className='date-detail'>
         <View className='l'>
@@ -73,9 +75,9 @@ const Index = () =>{
 
 
 
-      <View className='bg-img'>
+      <View className='bg-img'  style={{backgroundImage:`url(${WechatIMG195Jpeg})`}}>
         <View className='content'>
-          <View className='title'>{roData.suggestion}</View>
+          <View className='title'>{roData.proposal}</View>
           <View className='desc'>{roData.content}</View>
           <View className='chuchu'>{roData.from}</View>
         </View>
