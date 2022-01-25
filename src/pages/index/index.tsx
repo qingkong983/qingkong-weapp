@@ -11,6 +11,8 @@ const Index = () =>{
   const weeks = ['一','二','三','四','五','六','日']
   console.log(moment().year(),moment().month() + 1,moment().date(),moment().format('E'))
 
+  const [imgUrl,setImgUrl] = useState('')
+
   const date = moment().date()
   console.log(LunarCalendar.calendar(2022,1).monthData[date - 1],'LunarCalendar')
 
@@ -48,8 +50,24 @@ const Index = () =>{
     }
   })
 
+  function genUrl(f: any): string {
+    const { storageKey } = f
+    const { postfix } = f
+    return `http://public-api.rico.org.cn/${storageKey}.${postfix}`
+  }
+
   useDidShow(() => {
     request({url:'https://www.api.rico.org.cn/qingkong/calendar/ow',data:{t:Math.random()}}).then(res=>{
+      console.log(res.data)
+      const params = {
+        label:String(res.data.id),
+        bucket:'qingkong-home'
+      }
+      request({url:'https://www.api.rico.org.cn/public-api/file/list',method:'POST',data:params}).then(resx=>{
+        console.log(resx.data[0],12345)
+        setImgUrl(genUrl(resx.data[0]))
+      })
+
       setRoData(res.data)
     })
   })
@@ -75,7 +93,7 @@ const Index = () =>{
 
 
 
-      <View className='bg-img'  style={{backgroundImage:`url(${WechatIMG195Jpeg})`}}>
+      <View className='bg-img' style={{backgroundImage:`url(${imgUrl})`}}>
         <View className='content'>
           <View className='title'>{roData.proposal}</View>
           <View className='desc'>{roData.content}</View>
