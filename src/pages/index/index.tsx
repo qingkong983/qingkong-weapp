@@ -33,6 +33,7 @@ const Index = () =>{
     profession: '',
     author: '',
     authorOriginName: '',
+    roData:'#000000'
   })
 
 
@@ -57,7 +58,7 @@ const Index = () =>{
   }
 
   useDidShow(() => {
-    request({url:'https://www.api.rico.org.cn/qingkong/calendar/ow',data:{t:Math.random()}}).then(res=>{
+    request({url:'http://127.0.0.1:8080/calendar/ow',data:{t:Math.random()}}).then(res=>{
       console.log(res.data)
       const params = {
         label:String(res.data.id),
@@ -93,7 +94,7 @@ const Index = () =>{
 
 
 
-      <View className='bg-img' style={{backgroundImage:`url(${imgUrl})`}}>
+      <View className='bg-img' style={{backgroundImage:`url(${imgUrl})`,color: roData.background}}>
         <View className='content'>
           <View className='title'>{roData.proposal}</View>
           <View className='desc'>{roData.content}</View>
