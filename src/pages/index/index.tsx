@@ -58,7 +58,7 @@ const Index = () =>{
   }
 
   useDidShow(() => {
-    request({url:'http://127.0.0.1:8080/calendar/ow',data:{t:Math.random()}}).then(res=>{
+    request({url:'https://www.api.rico.org.cn/qingkong/calendar/ow',data:{t:Math.random()}}).then(res=>{
       console.log(res.data)
       const params = {
         label:String(res.data.id),
