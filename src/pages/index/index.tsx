@@ -68,6 +68,7 @@ const Index = () =>{
     profession: '',
     author: '',
     authorOriginName: '',
+    roData:'#000000'
   })
 
   useShareAppMessage(res => {
@@ -126,7 +127,7 @@ const Index = () =>{
         </View>
       </View>
 
-      <View className='bg-img' style={{backgroundImage:`url(${imgUrl})`}}>
+      <View className='bg-img' style={{backgroundImage:`url(${imgUrl})`,color: roData.background}}>
         <View className='content'>
           <View className='title'>{roData.proposal}</View>
           <View className='desc'>{roData.content}</View>
