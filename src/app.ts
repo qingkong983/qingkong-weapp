@@ -1,9 +1,16 @@
 import { Component } from 'react'
 import './app.less'
+import Taro from "@tarojs/taro";
+import {UserService} from "./service/UserService";
 
 class App extends Component {
 
-  componentDidMount () {}
+
+
+  componentWillReceiveProps (nextProps) {
+  }
+  componentDidMount () {
+  }
 
   componentDidShow () {}
 
