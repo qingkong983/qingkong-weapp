@@ -117,7 +117,7 @@ const Index = () =>{
         </View>
       </View>
       <View className={'looked'}>
-        <View style={{color:'#333',fontSize:'12px'}}>今天看过的人</View>
+        <View style={{color:'rgb(0,44,171)',fontSize:'12px'}}>今天看过的人</View>
         <View className={'punch-wrap'} onClick={()=>{
           Taro.navigateTo({
             url: '/pages/Looks/index'
@@ -132,11 +132,11 @@ const Index = () =>{
             })
           }
         </View>
-        <View className={'tips'}>
-          <View>Tips：</View>
-          <View>1.点击头像可查看详细</View>
-          <View>2.点击获取头像昵称让我们知道你来过</View>
-        </View>
+        {/*<View className={'tips'}>*/}
+        {/*  <View>Tips：</View>*/}
+        {/*  <View>1.点击头像可查看详细</View>*/}
+        {/*  <View>2.点击获取头像昵称让我们知道你来过</View>*/}
+        {/*</View>*/}
       </View>
       <View className='operate'>
         <Button className='btn' onClick={()=>{
