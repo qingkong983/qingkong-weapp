@@ -3,8 +3,7 @@
 ## 本地开发
 
 1. npm i
-2. project.config.copy.json => project.config.json，把appid改成自己的
-3. npm run dev:weapp
+2npm run dev:weapp
 
 ## 发布生产
 

@@ -1,9 +1,9 @@
-import {Button, Image, View,Text} from '@tarojs/components'
+import {Button, Image, View} from '@tarojs/components'
 import './index.less'
 import LunarCalendar from 'lunar-calendar'
 import moment from 'moment'
 import {useEffect, useState} from "react";
-import Taro, {onAppShow, useDidShow, useShareAppMessage} from "@tarojs/taro";
+import Taro, {useDidShow, useShareAppMessage} from "@tarojs/taro";
 import {UserService} from "../../service/UserService";
 import {request} from './../../utils/request'
 import {config} from './../../config'
