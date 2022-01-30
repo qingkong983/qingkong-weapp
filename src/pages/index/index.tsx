@@ -117,7 +117,7 @@ const Index = () =>{
         </View>
       </View>
       <View className={'looked'}>
-        <View style={{color:'#333'}}>今天看过的人</View>
+        <View style={{color:'#333',fontSize:'12px'}}>今天看过的人</View>
         <View className={'punch-wrap'} onClick={()=>{
           Taro.navigateTo({
             url: '/pages/Looks/index'
