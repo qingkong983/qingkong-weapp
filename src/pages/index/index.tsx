@@ -40,7 +40,10 @@ const Index = () =>{
   const weeks = ['一','二','三','四','五','六','日']
   const [imgUrl,setImgUrl] = useState('')
   const date = moment().date()
-  const lcObj = LunarCalendar.calendar(2022,1).monthData[date - 1]
+  const year = moment().year()
+  const month = moment().month()
+  console.log(year,month)
+  const lcObj = LunarCalendar.calendar(year,month+1).monthData[date - 1]
   const [baseData,setBaseData] = useState<any>({
     date: moment().format('MM/DD'),
     week: `星期${weeks[(moment().format('E') - 1)]}`,
