@@ -85,7 +85,18 @@ const Index = () =>{
       request({url:'https://www.api.rico.org.cn/public-api/file/list',method:'POST',data:params}).then(resx=>{
         setImgUrl(genUrl(resx[0]))
       })
-      setRoData(res)
+      request({})
+      request({url:'https://www.api.rico.org.cn/purplelog/log',method:'POST',data:{
+          "tags":["weapp"],
+          "level":"info",
+          "msg": {
+            origin:`${baseUrl}/calendar/ow`,
+            req:res.id,
+            res:res
+          }
+        }}).then(resxx=>{
+        console.log(resxx)
+      })
     })
     request({url:`${baseUrl}/punch/recordPunch`,method:'POST'}).then(xxxx=>{
       request({url:`${baseUrl}/punch/todayPunch`,method:'POST'}).then(resxc=>{
