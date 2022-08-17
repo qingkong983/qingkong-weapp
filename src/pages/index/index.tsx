@@ -89,11 +89,11 @@ const Index = () =>{
       request({url:'https://www.api.rico.org.cn/purplelog/log',method:'POST',data:{
           "tags":["weapp"],
           "level":"info",
-          "msg": {
+          "msg": JSON.stringify({
             origin:`${baseUrl}/calendar/ow`,
             req:res.id,
             res:res
-          }
+          })
         }}).then(resxx=>{
         console.log(resxx)
       })
