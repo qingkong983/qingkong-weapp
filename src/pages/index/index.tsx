@@ -1,4 +1,4 @@
-import {Button, Image, View} from '@tarojs/components'
+import {Button, Image, Text, View} from '@tarojs/components'
 import './index.less'
 import LunarCalendar from 'lunar-calendar'
 import moment from 'moment'
@@ -85,7 +85,7 @@ const Index = () =>{
       request({url:'https://www.api.rico.org.cn/public-api/file/list',method:'POST',data:params}).then(resx=>{
         setImgUrl(genUrl(resx[0]))
       })
-      request({})
+      setRoData(res)
       request({url:'https://www.api.rico.org.cn/purplelog/log',method:'POST',data:{
           "tags":["weapp"],
           "level":"info",
@@ -121,17 +121,17 @@ const Index = () =>{
       <View className='bg-img' style={{backgroundImage:`url(${imgUrl})`,color: roData.background}}>
         <View className='content'>
           <View className='title'>{roData.proposal}</View>
-          <View className='desc'>{roData.content}</View>
-          <View className='chuchu'>{roData.from}</View>
+          <Text className='desc'>{roData.content}</Text>
         </View>
         <View className='bottom'>
+          <View className='chuchu'>{roData.from}</View>
           <View className='baixian'></View>
           <View className='zuozhe'>{roData.profession}，{roData.author}</View>
           <View className='en-name'>{roData.authorOriginName}</View>
         </View>
       </View>
       <View className={'looked'}>
-        <View style={{color:'#722ed1',fontSize:'12px'}}>今天看过的人</View>
+        <View style={{color:'rgb(0,44,171)',fontSize:'12px'}}>今天看过的人</View>
         <View className={'punch-wrap'} onClick={()=>{
           Taro.navigateTo({
             url: '/pages/Looks/index'
